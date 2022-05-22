@@ -1,0 +1,38 @@
+<!-- create блок -->
+
+{{ define "create" }}
+
+{{ template "header" }}
+
+<main class="px-3">
+    <h1 class="cover-heading">Форма добавления статьи</h1>
+
+
+    <!-- action="/save_article" страница на которой будет происходит обработка
+         формы, url также отслеживается обработчиком в go коде -->
+    <!-- method="post" это метод передачи данных -->
+    <form action="/save_article" method="post">
+        <input type="text" name="title" id="title"
+               placeholder="Введите название статьи" class="form-control"><br>
+        <textarea name="anons" id="anons" class="form-control"
+                  placeholder="Введите анонс статьи"></textarea><br>
+        <textarea name="full_text" id="full_text" class="form-control"
+                  placeholder="Введите текст статьи"></textarea><br>
+        <button class="btn btn-warning">Добавить</button>
+    </form>
+
+
+    <p class="lead"> </p>
+
+
+
+
+
+    <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+    </p>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

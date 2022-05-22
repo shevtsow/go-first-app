@@ -1,0 +1,33 @@
+<!-- ЭТО ДИНАМИЧЕСКАЯ ЧАСТЬ, КОТОРАЯ БУДЕТ ВСТРАИВАТЬСЯ В ДРУГИЕ HTML ФАЙЛЫ -->
+
+{{ define "index" }}
+
+{{ template "header" }}
+
+<main class="px-3">
+    <h1>Главная страница</h1>
+
+    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+
+
+    <!-- ТУТ СОЗДАЕТСЯ ЦЫКЛ ДЛЯ ПЕРЕБОРА ПЕРЕДАВАЕМОГО ИЗ *.go СПИСКА. 
+        ОБЯЗАТЕЛЬНО НЕЗАБЫТЬ ЗАКРЫТЬ ЦЫКЛ. ТАКЖЕ НА ЗАБЫТЬ ЧТО ПОЛЯ В ДВОЙНЫ
+        ФИГУРНЫХ СКОБКАХ ДОЛЖНЫ БЫТЬ С БОЛЬШОЙ БУКВЫ. -->
+    {{ range . }}
+        <div class="alert alert-danger">
+            <h2>{{ .Title }}</h2>
+            <p> {{ .Anons }}</p>
+            <a href="/post/{{ .Id }}" class="btn btn-danger">Читать далее</a>
+        </div>
+    {{ else }}
+        <p class="lead">Статей нет</p>
+    {{ end }}
+
+    <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
+    </p>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}
